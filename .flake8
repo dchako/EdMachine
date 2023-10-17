@@ -1,0 +1,3 @@
+[flake8]
+ignore = E501,W291
+extend-exclude=dist,build,env,migrations
