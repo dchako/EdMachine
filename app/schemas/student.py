@@ -1,21 +1,35 @@
 from typing import Optional, List
 from app.schemas.base import BaseSchema
 from app.schemas.base import BaseResponseSchema
+from app.schemas.course import courseSchema
 
 
 class studentSchema(BaseSchema):
-    """student Schema."""
+    """student Schema.
+        {
+        "full_name": "string",
+        "email": "string",
+        "adress": "string",
+        "telephone": "string",
+        "courses": [
+            {
+            "course_id": "string"
+            }
+        ]
+        }
+    """
 
     full_name: str
     email: str
     adress: str
     telephone: str
+    id: Optional[str]
 
 
 class studentRequestCreateSchema(studentSchema):
     """student Request Create Schema."""
 
-    course: Optional[str]
+    courses: Optional[List[courseSchema]]
 
 
 class studentResponseSchema(BaseResponseSchema):

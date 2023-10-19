@@ -11,4 +11,4 @@ class CareerModel(BaseModel):
     name = Column(String(100), nullable=False)
     description = Column(Text, nullable=False)
 
-    course = relationship("CourseModel", lazy="joined", secondary="CareerCourseModel")
+    course = relationship("CourseModel", lazy="joined", secondary="career_course")

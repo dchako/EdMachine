@@ -13,4 +13,4 @@ class StudentModel(BaseModel):
     adress = Column(String(300), nullable=False)
     telephone = Column(String(100), nullable=False)
 
-    course = relationship("CourseModel", lazy="joined", secondary="CareerCourseModel")
+    courses = relationship("CourseModel", lazy="joined", secondary="course_student")

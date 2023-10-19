@@ -32,6 +32,17 @@ class StudentRepo(BaseRepo):
         return Students
 
     @classmethod
+    def add_course(cls, student, courses):
+        """Add course to student."""
+
+        with get_session() as session:
+            for course in courses:
+                student.courses.append(course)
+            session.add(student)
+            session.commit()
+        return student
+
+    @classmethod
     def get_many_by_pagination(cls, filters):
         """Retrieve many Students by filters."""
 

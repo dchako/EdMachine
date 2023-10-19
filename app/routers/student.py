@@ -25,9 +25,8 @@ def create_student(payload: studentRequestCreateSchema):
 def get_many_students(response: Response, params: studentGetAllRequestSchema = Depends()):
     """Retrieves many student requests by filters."""
 
-    filters, pagination = params.format(params)
-    filters.update(pagination)
-    students, pagination_info = StudentService.get_many(filters)
+    filters = params.format(params)
+    students, pagination_info = StudentService.get_many_paginated(filters)
     response.headers.update(pagination_info)
     return students
 

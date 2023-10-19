@@ -32,3 +32,4 @@ services:
       - "3307:3306"
     volumes:
       - apiedmachinedb:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
